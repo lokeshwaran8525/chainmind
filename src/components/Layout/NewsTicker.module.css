@@ -1,0 +1,112 @@
+.tickerWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 240, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 36px;
+}
+
+.tickerLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 42, 42, 0.15), rgba(255, 42, 42, 0.05));
+  border-right: 1px solid rgba(255, 42, 42, 0.3);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ff2a2a;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pulseIcon {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.tickerTrack {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+}
+
+.tickerContent {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: scroll 120s linear infinite;
+  width: max-content;
+}
+
+.tickerContent:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.tickerItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.tickerItem:hover {
+  opacity: 0.8;
+}
+
+.tickerIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tickerItem.critical .tickerIcon { color: var(--color-danger); }
+.tickerItem.warning .tickerIcon { color: var(--color-warning); }
+.tickerItem.info .tickerIcon { color: var(--color-primary); }
+
+.tickerMessage {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.01em;
+}
+
+.tickerItem.critical .tickerMessage {
+  color: rgba(255, 100, 100, 0.95);
+}
+
+.tickerSource {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.tickerDivider {
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 0.4rem;
+  margin: 0 12px;
+  flex-shrink: 0;
+}

@@ -1,0 +1,184 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recCard {
+  background: linear-gradient(135deg, rgba(30, 30, 45, 0.9) 0%, rgba(10, 10, 15, 0.95) 100%);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.recCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.recHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.recTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.recDesc {
+  color: var(--text-bright);
+  line-height: 1.5;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.recMeta {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metaLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metaValue {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.engineSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.engineTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.engineTable th {
+  text-align: left;
+  padding: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.engineTable td {
+  padding: 1rem;
+  color: var(--text-bright);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.engineTable tr:last-child td {
+  border-bottom: none;
+}
+
+.engineTable tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.scoreBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(0, 255, 157, 0.1);
+  color: var(--color-accent);
+  border: 1px solid rgba(0, 255, 157, 0.3);
+}
+
+.approveButton {
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.approveButton:hover {
+  background: var(--color-primary);
+  color: var(--bg-main);
+  box-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .recHeader {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .recTitle {
+    font-size: 1.1rem;
+  }
+
+  .recMeta {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .engineTable {
+    font-size: 0.85rem;
+  }
+
+  .engineTable th,
+  .engineTable td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .approveButton {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.riskGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.riskCard {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.riskCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.riskCard.critical::before { background: var(--color-danger); box-shadow: 0 0 10px var(--color-danger); }
+.riskCard.high::before { background: var(--color-warning); box-shadow: 0 0 10px var(--color-warning); }
+.riskCard.medium::before { background: #ffd700; box-shadow: 0 0 10px #ffd700; }
+.riskCard.low::before { background: var(--color-accent); box-shadow: 0 0 10px var(--color-accent); }
+
+.regionName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.riskScore {
+  font-size: 2.25rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.riskCard.critical .riskScore { color: var(--color-danger); }
+.riskCard.high .riskScore { color: var(--color-warning); }
+.riskCard.medium .riskScore { color: #ffd700; }
+.riskCard.low .riskScore { color: var(--color-accent); }
+
+.chartSection {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  min-height: 400px;
+}
+
+.chartCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chartContainer {
+  flex: 1;
+  min-height: 300px;
+}
+
+.threatList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.threatItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+  border-left: 2px solid var(--color-danger);
+}
+
+.threatIcon {
+  color: var(--color-danger);
+  margin-top: 0.125rem;
+}
+
+.threatContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.threatTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.threatDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .chartSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .riskGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .riskScore {
+    font-size: 1.75rem;
+  }
+
+  .chartSection {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .chartContainer {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .riskGrid {
+    grid-template-columns: 1fr;
+  }
+}

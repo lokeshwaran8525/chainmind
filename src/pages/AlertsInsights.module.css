@@ -1,0 +1,210 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.filterBtn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+}
+
+.filterBtn.active {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.alertFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alertCard {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.alertCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(4px);
+}
+
+.alertCard.critical { border-left-color: var(--color-danger); box-shadow: -10px 0 20px -10px rgba(255, 42, 42, 0.2); }
+.alertCard.warning { border-left-color: var(--color-warning); }
+.alertCard.info { border-left-color: var(--color-primary); }
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.alertCard.critical .iconWrapper { background: rgba(255, 42, 42, 0.1); color: var(--color-danger); }
+.alertCard.warning .iconWrapper { background: rgba(255, 176, 0, 0.1); color: var(--color-warning); }
+.alertCard.info .iconWrapper { background: rgba(0, 240, 255, 0.1); color: var(--color-primary); }
+
+.alertContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.alertHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alertType {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.alertCard.critical .alertType { color: var(--color-danger); }
+.alertCard.warning .alertType { color: var(--color-warning); }
+.alertCard.info .alertType { color: var(--color-primary); }
+
+.alertTime {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.alertMessage {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-bright);
+}
+
+.insightCard {
+  background: radial-gradient(circle at top right, rgba(176, 38, 255, 0.1), transparent 50%),
+              rgba(10, 10, 15, 0.8);
+  border-color: rgba(176, 38, 255, 0.3);
+  position: sticky;
+  top: 2rem;
+}
+
+.insightHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(176, 38, 255, 0.2);
+  padding-bottom: 1rem;
+}
+
+.insightBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.insightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.insightNumber {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  opacity: 0.5;
+}
+
+.insightText {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-main);
+  background: rgba(255,255,255,0.03);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-secondary);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .insightCard {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    gap: 0.4rem;
+  }
+
+  .filterBtn {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .alertCard {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .alertHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .insightCard {
+    position: static;
+  }
+}

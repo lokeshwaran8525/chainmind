@@ -1,0 +1,138 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 15, 0.5);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.select {
+  background: var(--bg-main);
+  color: var(--text-bright);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  outline: none;
+  min-width: 200px;
+}
+
+.timeGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.timeButton {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.timeButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.timeButton.active {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.chartCard {
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.chartContainer {
+  height: 400px;
+  width: 100%;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.metricCard {
+  text-align: center;
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.metricValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.metricValue.positive { color: var(--color-accent); text-shadow: 0 0 10px var(--color-accent-glow); }
+.metricValue.negative { color: var(--color-danger); text-shadow: 0 0 10px var(--color-danger-glow); }
+.metricValue.neutral { color: var(--color-primary); text-shadow: 0 0 10px var(--color-primary-glow); }
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .select {
+    min-width: 100%;
+  }
+
+  .timeGroup {
+    justify-content: center;
+  }
+
+  .chartCard {
+    min-height: 300px;
+  }
+
+  .chartContainer {
+    height: 280px;
+  }
+
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .metricValue {
+    font-size: 1.5rem;
+  }
+}
