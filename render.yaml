@@ -9,6 +9,6 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.6
       - key: NODE_VERSION
-        value: 20.11.0
+        value: 20.19.0
       - key: NEWSDATA_API_KEY
         sync: false  # Set manually in Render dashboard
